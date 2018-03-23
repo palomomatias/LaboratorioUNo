@@ -6,6 +6,9 @@ se pide mostrar:
  *maximo y minimo.
  *maximo numero par
  *cantidad de numeros comprendidos entre 125 y 236.
+
+
+
 */
 
 
@@ -29,6 +32,13 @@ int main()
     char letra='s';
     int par=0;
     int impar=0;
+    int max;
+    int min;
+    int flag=0;
+    int flagpar=0;
+    int maximoPar;
+
+
 
     while(letra!='n')
     {
@@ -43,8 +53,14 @@ int main()
 
                 if(numeros%2==0)
     {
-       par++;
 
+          if(flagpar==0 || numeros>maximoPar)
+    {
+        maximoPar=numeros;
+        flagpar=1;
+
+    }
+     par++;
     }
     else
         {
@@ -59,6 +75,34 @@ int main()
             {
                 contadornegativos++;
             }
+   /* if(flag==0)
+    {
+        max=numeros;
+        min=numeros;
+        flag=1;
+    }
+    else
+        {
+            if(numeros<min)
+            {
+                min=numeros;
+            }
+            if(numeros>max)
+            {
+                max=numeros;
+            }
+
+    }*/
+    if(flag==0 || numeros>max)
+    {
+        max=numeros;
+
+    }
+    if(flag==0||numeros<min)
+    {
+        min=numeros;
+        flag=1;
+    }
 
 
 
@@ -70,9 +114,11 @@ int main()
     contadornumeros=contadornegativos+contadorpositivos;
     porcentajepositivos=(float)(contadorpositivos*100)/contadornumeros;
     porcentajenegativos=(100-porcentajepositivos);
-    printf("la cantidad de numeros par son %d y los impar %d  ",par,impar);
-    printf("\el procentaje positivo es %0.1f y el porcentaje negativo es %0.1f",porcentajepositivos,porcentajenegativos);
-
+    printf("\nla cantidad de numeros par son %d y los impar %d  ",par,impar);
+    printf("\nel procentaje positivo es %0.1f y el porcentaje negativo es %0.1f",porcentajepositivos,porcentajenegativos);
+    printf("\nEl maximo es: %d",max);
+    printf("\nEl minimo es: %d",min);
+    printf("\nEl maximo par es: %d",maximoPar);
 
 
 
